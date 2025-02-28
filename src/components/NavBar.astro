@@ -2,13 +2,13 @@
 import { Image } from 'astro:assets';
 import Logo from '../images/rustuy-logo.webp';
 
-import Button from './Button.astro';
+import RSVPButton from './RSVPButton.astro';
 ---
 
 <nav class="w-screen flex justify-between items-center lg:px-8 lg:py-4">
-  <div class="h-12">
+  <a href="#" class="h-12">
     <Image class="h-full w-full" src={Logo} alt="Rust UY Logo" />
-  </div>
-  <p>14 de Mayo 2025 - Montevideo, Uruguay</p>
-  <Button>RSVP</Button>
+  </a>
+  <p class="text-lg">14 de Mayo 2025 - Montevideo, Uruguay</p>
+  <RSVPButton />
 </nav>

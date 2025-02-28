@@ -1,11 +1,15 @@
 ---
 import { Image } from 'astro:assets';
 import Logo from '../images/rustuy-logo.webp';
+
+import RSVPButton from '../components/RSVPButton.astro';
 ---
 
-<section id="title" class="mx-auto w-2/3 flex flex-col justify-center items-center text-lg">
+<section id="title" class="mx-auto w-2/3 flex flex-col justify-center items-center text-lg lg:space-y-2 mt-10">
   <div class="w-2xl mb-4">
     <Image src={Logo} alt="Rust UY Logo">
   </div>
-  <p>Somos una comunidad de uruguayos interesados por Rust, un "nuevo" y revolucionario lenguaje de programación de sistemas.</p>
+  <h2 class="text-white text-2xl font-bold">14 de Mayo, 2025</h2>
+  <h3 class="text-white text-xl font-medium">SpaceDev - Cornelio Cantera 2857, Montevideo, Uruguay</h3>
+  <RSVPButton />
 </section>
