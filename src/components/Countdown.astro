@@ -1,0 +1,48 @@
+---
+import { monthToString, timeUntilDate } from '../utils.ts';
+
+const { date } = Astro.props;
+
+const formattedDate = `${date.getDate()} de ${monthToString(date.getMonth())}, ${date.getFullYear()}`;
+const initialCountdown = timeUntilDate(date);
+---
+
+<div class="flex flex-col justify-center items-center space-y-4" data-date={date}>
+  <div class="flex text-white text-6xl font-bold space-x-2 w-96 justify-center items-center">
+    <div class="inline-flex flex-col justify-center items-center w-20">
+      <span id="days">{initialCountdown.days}</span>
+      <h2 class="text-sm">Días</h2>
+    </div>
+    <div class="inline-flex flex-col justify-center items-center w-20">
+      <span id="hours">{initialCountdown.hours}</span>
+      <h2 class="text-sm">Horas</h2>
+    </div>
+    <div class="inline-flex flex-col justify-center items-center w-20">
+      <span id="minutes">{initialCountdown.minutes}</span>
+      <h2 class="text-sm">Minutos</h2>
+    </div>
+    <div class="inline-flex flex-col justify-center items-center w-20">
+      <span id="seconds">{initialCountdown.seconds}</span>
+      <h2 class="text-sm">Segundos</h2>
+    </div>
+  </div>
+  <h3 class="text-white text-2xl">{formattedDate}</h3>
+</div>
+
+<script>
+import { timeUntilDate } from '../utils.ts';
+
+const container = document.querySelector('[data-date]');
+const date = new Date(container.dataset.date);
+
+setInterval(
+  () => {
+    const countdown = timeUntilDate(date);
+    document.querySelector('#days').textContent = countdown.days;
+    document.querySelector('#hours').textContent = countdown.hours;
+    document.querySelector('#minutes').textContent = countdown.minutes;
+    document.querySelector('#seconds').textContent = countdown.seconds;
+  },
+  1000,
+);
+</script>
