@@ -4,6 +4,7 @@ import Logo from '../images/rustuy-logo.webp';
 import SpaceDevLogo from '../images/spacedev-logo.png';
 
 import Button from '../components/Button.astro';
+import Location from '../components/Location.astro';
 import RSVPButton from '../components/RSVPButton.astro';
 import Countdown from '../components/Countdown.astro';
 
@@ -19,8 +20,9 @@ const event = events.find(({ date }) => new Date() < date);
   </div>
   {event !== undefined && (
     <div class="w-full flex justify-evenly">
-      <div class="flex flex-col justify-center items-center space-y-4">
+      <div class="flex flex-col justify-center items-center space-y-6">
         <Countdown date={event.date} />
+        <Location location={event.host} />
         <RSVPButton />
       </div>
     </div>
