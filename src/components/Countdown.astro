@@ -8,20 +8,20 @@ const initialCountdown = timeUntilDate(date);
 ---
 
 <div class="flex flex-col justify-center items-center space-y-4" data-date={date}>
-  <div class="flex text-white md:text-7xl text-6xl font-bold space-x-2 w-full justify-center items-center">
-    <div class="inline-flex flex-col justify-center items-center md:w-24 w-20">
+  <div class="flex text-white sm:text-7xl text-5xl font-bold space-x-2 w-full justify-center items-center">
+    <div class="inline-flex flex-col justify-center items-center sm:w-24 w-16">
       <span id="days">{initialCountdown.days}</span>
       <h2 class="text-sm">Días</h2>
     </div>
-    <div class="inline-flex flex-col justify-center items-center md:w-24 w-20">
+    <div class="inline-flex flex-col justify-center items-center sm:w-24 w-16">
       <span id="hours">{initialCountdown.hours}</span>
       <h2 class="text-sm">Horas</h2>
     </div>
-    <div class="inline-flex flex-col justify-center items-center md:w-24 w-20">
+    <div class="inline-flex flex-col justify-center items-center sm:w-24 w-16">
       <span id="minutes">{initialCountdown.minutes}</span>
       <h2 class="text-sm">Minutos</h2>
     </div>
-    <div class="inline-flex flex-col justify-center items-center md:w-24 w-20">
+    <div class="inline-flex flex-col justify-center items-center sm:w-24 w-16">
       <span id="seconds">{initialCountdown.seconds}</span>
       <h2 class="text-sm">Segundos</h2>
     </div>
