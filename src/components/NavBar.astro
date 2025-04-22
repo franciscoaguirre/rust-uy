@@ -5,10 +5,10 @@ import Logo from '../images/rustuy-logo.webp';
 import RSVPButton from './RSVPButton.astro';
 ---
 
-<nav class="w-screen flex justify-between items-center lg:px-8 lg:py-4">
+<nav class="w-screen flex justify-between items-center lg:px-8 lg:py-4 p-2">
   <a href="#" class="h-12">
     <Image class="h-full w-full" src={Logo} alt="Rust UY Logo" />
   </a>
-  <p class="text-lg">28 de Mayo, 2025 - Montevideo, Uruguay</p>
+  <p class="md:block md:text-xl text-lg hidden">28 de Mayo, 2025 - Montevideo, Uruguay</p>
   <RSVPButton />
 </nav>

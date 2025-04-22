@@ -14,16 +14,18 @@ const events = [
 const event = events.find(({ date }) => new Date() < date);
 ---
 
-<section id="title" class="mx-auto w-3/4 flex flex-col justify-center items-center text-lg lg:space-y-2 mt-6">
-  <div class="w-2xl mb-4">
+<section id="title" class="mx-auto lg:w-3/4 w-7/8 flex flex-col justify-center items-center text-lg lg:space-y-2 mt-6">
+  <div class="md:w-2xl w-full mb-4">
     <Image src={Logo} alt="Rust UY Logo">
   </div>
   {event !== undefined && (
     <div class="w-full flex justify-evenly">
-      <div class="flex flex-col justify-center items-center space-y-6">
+      <div class="flex flex-col justify-center items-center w-full space-y-2">
         <Countdown date={event.date} />
         <Location location={event.host} />
-        <RSVPButton />
+        <div class="mt-8">
+          <RSVPButton />
+        </div>
       </div>
     </div>
   )}
