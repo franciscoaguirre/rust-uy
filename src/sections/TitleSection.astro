@@ -10,6 +10,7 @@ import Countdown from '../components/Countdown.astro';
 
 const events = [
   // 22:00 in UTC because it'll be 19:00 in Uruguay.
+  // Already past.
   { date: new Date('4 June 2025, 22:00'), host: 'SpaceDev' },
 ];
 const event = events.find(({ date }) => new Date() < date);
