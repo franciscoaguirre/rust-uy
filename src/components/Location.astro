@@ -6,11 +6,16 @@ interface LocationData {
   googleMapsLink: string;
 }
 
-const getLocationData = (location: 'SpaceDev'): LocationData => {
+const getLocationData = (location: 'SpaceDev' | 'WyeWorks'): LocationData => {
   if (location === 'SpaceDev') {
     return {
       address: 'Cornelio Cantera 2857',
       googleMapsLink: 'https://maps.app.goo.gl/zMP9ccaDGTwnipgV8',
+    };
+  } else if (location === 'WyeWorks') {
+    return {
+      address: 'Solano García 2470',
+      googleMapsLink: 'https://maps.app.goo.gl/GYL7NkL8TqCL8cEz8',
     };
   }
 }
