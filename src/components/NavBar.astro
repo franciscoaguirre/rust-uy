@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Logo from '../images/rustuy-logo.webp';
 
+import Link from './Link.astro';
 import RSVPButton from './RSVPButton.astro';
 ---
 
@@ -9,6 +10,5 @@ import RSVPButton from './RSVPButton.astro';
   <a href="#" class="h-12 w-24">
     <Image class="h-full w-full" src={Logo} alt="Rust UY Logo" />
   </a>
-  <p class="md:block md:text-xl text-lg hidden">28 de Mayo, 2025 - Montevideo, Uruguay</p>
   <RSVPButton />
 </nav>

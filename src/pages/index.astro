@@ -4,20 +4,17 @@ export const prerender = false;
 
 import Layout from '../layouts/main.astro';
 
-import NavBar from '../components/NavBar.astro';
 import TitleSection from '../sections/TitleSection.astro';
 import AboutSection from '../sections/AboutSection.astro';
 import NextEventSection from '../sections/NextEventSection.astro';
+import PastEventsSection from '../sections/PastEventsSection.astro';
 ---
 
 <Layout content={{ title: 'Rust UY' }}>
-	<NavBar />
-	<main class="lg:px-20 lg:space-y-20">
-		<TitleSection />
-		<!-- <AboutSection /> -->
-		<!-- <NextEventSection /> -->
-		<!-- PastEventsSection -->
-	</main>
+	<TitleSection />
+	<AboutSection />
+	<!-- <NextEventSection /> -->
+	<PastEventsSection />
 </Layout>
 
 <style is:global>

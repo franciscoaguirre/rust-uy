@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 const { content } = Astro.props;
+
+import NavBar from '../components/NavBar.astro';
 ---
 
 <html lang="en">
@@ -11,7 +13,10 @@ const { content } = Astro.props;
 		<title>{content.title}</title>
 	</head>
 	<body class="bg-secondary">
-		<slot />
+		<NavBar />
+		<main class="lg:px-20 lg:space-y-20">
+			<slot />
+		</main>
 		<!-- 100% privacy-first analytics -->
 		<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 	</body>
