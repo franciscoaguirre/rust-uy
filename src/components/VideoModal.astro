@@ -1,0 +1,74 @@
+---
+---
+
+<div 
+  id="video-modal" 
+  class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center p-4"
+>
+  <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
+    <div class="flex justify-between items-center p-4 border-b">
+      <h2 id="modal-title" class="text-xl font-semibold text-gray-900"></h2>
+      <button 
+        id="close-modal" 
+        class="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+        aria-label="Cerrar"
+      >
+        &times;
+      </button>
+    </div>
+    
+    <div class="aspect-video bg-black">
+      <iframe
+        id="modal-video"
+        src=""
+        title=""
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        class="w-full h-full"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('video-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalVideo = document.getElementById('modal-video') as HTMLIFrameElement;
+  const closeModal = document.getElementById('close-modal');
+
+  function openVideoModal(youtubeId: string, title: string) {
+    if (modal && modalTitle && modalVideo) {
+      modalTitle.textContent = title;
+      modalVideo.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
+      modalVideo.title = title;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeVideoModal() {
+    if (modal && modalVideo) {
+      modal.classList.add('hidden');
+      modalVideo.src = '';
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  closeModal?.addEventListener('click', closeVideoModal);
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeVideoModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeVideoModal();
+    }
+  });
+
+  // Export function to global scope for use in other components
+  (window as any).openVideoModal = openVideoModal;
+</script>

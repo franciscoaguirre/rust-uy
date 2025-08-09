@@ -1,0 +1,102 @@
+---
+import SectionHeader from '../components/SectionHeader.astro';
+import VideoCard from '../components/VideoCard.astro';
+import VideoModal from '../components/VideoModal.astro';
+import { videos, complexityLabels, categoryLabels } from '../data/videos';
+
+const complexities = ['beginner', 'intermediate', 'advanced'] as const;
+const categories = ['language-features', 'applications'] as const;
+---
+
+<section id="videos" class="w-full py-12 mb-16 rounded-lg" style="background-color: #6b7698;">
+  <div class="w-11/12 mx-auto lg:w-11/12 lg:max-w-none">
+  <div class="mb-6">
+    <SectionHeader>Videos</SectionHeader>
+  </div>
+  
+  <!-- <div class="mb-8">
+    <div class="flex flex-wrap gap-4 justify-center">
+      <div>
+        <label for="complexity-filter" class="block text-sm font-medium text-gray-300 mb-2">
+          Complejidad:
+        </label>
+        <select id="complexity-filter" class="bg-gray-700 text-white px-3 py-2 rounded">
+          <option value="all">Todas</option>
+          {complexities.map(complexity => (
+            <option value={complexity}>{complexityLabels[complexity]}</option>
+          ))}
+        </select>
+      </div>
+      
+      <div>
+        <label for="category-filter" class="block text-sm font-medium text-gray-300 mb-2">
+          Categoría:
+        </label>
+        <select id="category-filter" class="bg-gray-700 text-white px-3 py-2 rounded">
+          <option value="all">Todas</option>
+          {categories.map(category => (
+            <option value={category}>{categoryLabels[category]}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+  </div> -->
+
+  <div id="videos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {videos.map(video => (
+      <VideoCard video={video} />
+    ))}
+  </div>
+  
+  <VideoModal />
+  </div>
+</section>
+
+<script>
+  const complexityFilter = document.getElementById('complexity-filter') as HTMLSelectElement;
+  const categoryFilter = document.getElementById('category-filter') as HTMLSelectElement;
+  const videosGrid = document.getElementById('videos-grid');
+
+  function filterVideos() {
+    const complexityValue = complexityFilter.value;
+    const categoryValue = categoryFilter.value;
+    
+    const videoCards = videosGrid?.querySelectorAll('[data-complexity][data-category]');
+    
+    videoCards?.forEach(card => {
+      const cardComplexity = card.getAttribute('data-complexity');
+      const cardCategory = card.getAttribute('data-category');
+      
+      const complexityMatch = complexityValue === 'all' || cardComplexity === complexityValue;
+      const categoryMatch = categoryValue === 'all' || cardCategory === categoryValue;
+      
+      if (complexityMatch && categoryMatch) {
+        (card as HTMLElement).style.display = 'block';
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+  }
+
+  // Add click handlers to video cards
+  function setupVideoCardHandlers() {
+    const videoCards = document.querySelectorAll('[data-youtube-id]');
+    
+    videoCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const youtubeId = card.getAttribute('data-youtube-id');
+        const title = card.getAttribute('data-title');
+        
+        if (youtubeId && title) {
+          (window as any).openVideoModal(youtubeId, title);
+        }
+      });
+    });
+  }
+
+  complexityFilter?.addEventListener('change', filterVideos);
+  categoryFilter?.addEventListener('change', filterVideos);
+  
+  // Initialize video card handlers when DOM is ready
+  setupVideoCardHandlers();
+</script>
