@@ -10,6 +10,7 @@ import Countdown from '../components/Countdown.astro';
 
 const events = [
   // 22:00 in UTC because it'll be 19:00 in Uruguay.
+  { date: new Date('22 October 2025, 22:00'), host: 'WyeWorks', id: 311475675 },
   // Already past.
   { date: new Date('4 June 2025, 22:00'), host: 'SpaceDev' },
 ];
@@ -27,7 +28,7 @@ const event = events.find(({ date }) => new Date() < date);
         <Countdown date={event.date} />
         <Location location={event.host} />
         <div class="mt-8">
-          <RSVPButton />
+          <RSVPButton eventId={event.id} />
         </div>
       </div>
     </div>

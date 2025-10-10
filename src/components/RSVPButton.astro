@@ -1,5 +1,15 @@
 ---
 import LinkButton from './LinkButton.astro';
+
+const { eventId } = Astro.props;
+
+const href = eventId !== undefined ? `https://www.meetup.com/rust-uruguay/events/${eventId}` : 'https://www.meetup.com/rust-uruguay';
+const text = eventId !== undefined ? 'Registrate en Meetup!' : 'Ir a Meetup';
 ---
 
-<LinkButton target="_blank" href="https://www.meetup.com/rust-uruguay/">Ir a Meetup!</LinkButton>
+<LinkButton
+  target="_blank"
+  href={href}
+>
+  {text}
+</LinkButton>
