@@ -21,9 +21,9 @@ const complexityLabels = {
 };
 ---
 
-<div 
-  class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer" 
-  data-complexity={complexity} 
+<div
+  class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer flex flex-col h-full"
+  data-complexity={complexity}
   data-category={video.category}
   data-youtube-id={youtubeId}
   data-title={title}
@@ -43,16 +43,16 @@ const complexityLabels = {
     </div>
   </div>
   
-  <div class="p-3 border-t-2" style="border-color: #f74c00;">
+  <div class="p-3 border-t-2 flex flex-col flex-1" style="border-color: #f74c00;">
     <div class="mb-2">
       <span class={`px-2 py-1 rounded text-xs font-medium text-white ${complexityColors[complexity]} mb-2 inline-block`}>
         {complexityLabels[complexity]}
       </span>
     </div>
-    
+
     <h3 class="text-base font-semibold text-gray-900">{title}</h3>
-    
-    <div class="text-gray-600 text-xs">
+
+    <div class="text-gray-600 text-xs mt-auto pt-2">
       <p>Por: {speaker}</p>
     </div>
   </div>

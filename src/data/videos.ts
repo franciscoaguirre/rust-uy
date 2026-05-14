@@ -32,6 +32,28 @@ export const videos: Video[] = [
     topics: ['makepad', 'gui'],
     category: 'applications',
     description: 'Exploracion de problemas encontrados al implementar aplicaciones con Makepad.'
+  },
+  {
+    id: 'fearless-concurrency',
+    title: 'Fearless concurrency en Rust',
+    youtubeId: 'z-Y4CcvuPu4',
+    speaker: 'Nicolás Mayora',
+    meetupDate: '2026-05-13',
+    complexity: 'intermediate',
+    topics: ['concurrency'],
+    category: 'language-features',
+    description: 'Cómo Rust permite escribir código concurrente de forma segura, evitando data races en tiempo de compilación.'
+  },
+  {
+    id: 'intro-macros',
+    title: 'Una introducción a macros',
+    youtubeId: '3zPfd1ctJQw',
+    speaker: 'Francisco Aguirre',
+    meetupDate: '2026-05-13',
+    complexity: 'intermediate',
+    topics: ['macros'],
+    category: 'language-features',
+    description: 'Introducción al sistema de macros de Rust: qué son, cómo funcionan y cuándo conviene usarlas.'
   }
 ];
 
