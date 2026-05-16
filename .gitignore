@@ -2,6 +2,8 @@
 dist/
 # generated types
 .astro/
+# direnv / nix dev shell cache
+.direnv/
 
 # dependencies
 node_modules/

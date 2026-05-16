@@ -10,6 +10,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.1.0",
     "@astrojs/netlify": "^6.5.6",
+    "@libsql/client": "^0.17.3",
     "@tailwindcss/vite": "^4.0.3",
     "@types/canvas-confetti": "^1.9.0",
     "astro": "^5.10.1",

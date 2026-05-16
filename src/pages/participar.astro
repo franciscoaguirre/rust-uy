@@ -1,0 +1,31 @@
+---
+export const prerender = false;
+
+import Layout from '../layouts/main.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ParticipateForm from '../components/ParticipateForm.astro';
+---
+
+<Layout content={{ title: 'Participá · Rust UY' }}>
+  <section class="w-11/12 mx-auto my-16 lg:w-11/12 lg:max-w-none">
+    <div class="mb-6">
+      <SectionHeader>Participá</SectionHeader>
+    </div>
+
+    <div class="text-black text-lg lg:text-xl space-y-4 mb-8 max-w-xl mx-auto">
+      <p>
+        La comunidad la hacemos entre todos. ¿Hay un tema de Rust que te
+        gustaría ver en un meetup? ¿O te animás a dar una charla vos? Contanos
+        acá.
+      </p>
+    </div>
+
+    <ParticipateForm />
+  </section>
+</Layout>
+
+<style is:global>
+  p {
+    color: black;
+  }
+</style>
